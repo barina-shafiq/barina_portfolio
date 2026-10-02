@@ -1,0 +1,56 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js (including Turbopack)
+/.next/
+/out/
+/.turbo/
+
+# production
+/build
+
+# environment files (ignore secret credentials, allow template)
+.env*
+!.env.example
+
+# vercel
+.vercel
+
+# debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# typescript cache
+*.tsbuildinfo
+
+# editor & IDE
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.swo
+
+# operating system
+.DS_Store
+._*
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+
+# certificates & keys
+*.pem
+*.key

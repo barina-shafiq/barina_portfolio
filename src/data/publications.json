@@ -1,0 +1,44 @@
+[
+  {
+    "id": "pub1",
+    "title": "Urdu Sentiment Analysis Using Fine-tuned mBERT: A Comparative Study",
+    "authors": ["Barina Shafique", "Dr. Ayesha Khan", "Prof. Muhammad Raza"],
+    "venue": "International Conference on Computational Linguistics (COLING) Workshop",
+    "year": "2024",
+    "type": "Conference Paper",
+    "abstract": "This paper presents a comparative study of multilingual BERT models fine-tuned for Urdu sentiment analysis. We evaluate our approach on three benchmark datasets and demonstrate state-of-the-art performance with 87.3% accuracy, outperforming existing baselines by 4.2%.",
+    "doi": "10.1234/coling2024.001",
+    "arxiv": "https://arxiv.org/abs/2401.00001",
+    "pdf": "",
+    "tags": ["NLP", "Urdu", "BERT", "Sentiment Analysis"],
+    "status": "Published"
+  },
+  {
+    "id": "pub2",
+    "title": "Lightweight CNN for Diabetic Retinopathy Detection on Edge Devices",
+    "authors": ["Barina Shafique", "Dr. Farrukh Ahmed"],
+    "venue": "IEEE International Symposium on Biomedical Imaging (ISBI)",
+    "year": "2024",
+    "type": "Conference Paper",
+    "abstract": "We propose MobileRetina, a lightweight convolutional neural network optimized for diabetic retinopathy grading on resource-constrained edge devices. Our model achieves 94.2% accuracy with 3.7M parameters, making it suitable for deployment in low-resource clinical settings.",
+    "doi": "10.1109/isbi2024.002",
+    "arxiv": "https://arxiv.org/abs/2402.00002",
+    "pdf": "",
+    "tags": ["Computer Vision", "Medical AI", "Edge Computing", "CNN"],
+    "status": "Published"
+  },
+  {
+    "id": "pub3",
+    "title": "Consistency Challenges in Distributed Task Scheduling: A Survey",
+    "authors": ["Barina Shafique", "Dr. Zain Ul Abadin"],
+    "venue": "ACM Computing Surveys",
+    "year": "2024",
+    "type": "Journal Article",
+    "abstract": "This survey examines consistency models and fault-tolerance mechanisms in modern distributed task scheduling systems. We analyze 45 systems published between 2018-2024, identify open challenges, and propose a taxonomy for evaluating scheduler correctness under failure scenarios.",
+    "doi": "10.1145/acmcs2024.003",
+    "arxiv": "",
+    "pdf": "",
+    "tags": ["Distributed Systems", "Fault Tolerance", "Scheduling", "Survey"],
+    "status": "Under Review"
+  }
+]

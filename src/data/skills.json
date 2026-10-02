@@ -1,0 +1,51 @@
+{
+  "categories": [
+    {
+      "id": "languages",
+      "name": "Programming Languages",
+      "skills": [
+        { "id": "s1", "name": "Python", "level": 95, "icon": "python" },
+        { "id": "s2", "name": "JavaScript / TypeScript", "level": 90, "icon": "js" },
+        { "id": "s3", "name": "Go", "level": 70, "icon": "go" },
+        { "id": "s4", "name": "C++", "level": 80, "icon": "cpp" },
+        { "id": "s5", "name": "Dart / Flutter", "level": 75, "icon": "dart" },
+        { "id": "s6", "name": "SQL", "level": 85, "icon": "sql" }
+      ]
+    },
+    {
+      "id": "ml",
+      "name": "AI / Machine Learning",
+      "skills": [
+        { "id": "s7", "name": "TensorFlow / Keras", "level": 90, "icon": "tf" },
+        { "id": "s8", "name": "PyTorch", "level": 85, "icon": "pytorch" },
+        { "id": "s9", "name": "Scikit-learn", "level": 88, "icon": "sklearn" },
+        { "id": "s10", "name": "Hugging Face", "level": 80, "icon": "hf" },
+        { "id": "s11", "name": "OpenCV", "level": 75, "icon": "cv" },
+        { "id": "s12", "name": "NLTK / spaCy", "level": 78, "icon": "nlp" }
+      ]
+    },
+    {
+      "id": "web",
+      "name": "Web & Cloud",
+      "skills": [
+        { "id": "s13", "name": "React / Next.js", "level": 92, "icon": "react" },
+        { "id": "s14", "name": "Node.js / Express", "level": 85, "icon": "node" },
+        { "id": "s15", "name": "FastAPI / Flask", "level": 88, "icon": "api" },
+        { "id": "s16", "name": "Docker / Kubernetes", "level": 70, "icon": "docker" },
+        { "id": "s17", "name": "Firebase / Supabase", "level": 80, "icon": "fire" },
+        { "id": "s18", "name": "AWS / Vercel", "level": 72, "icon": "cloud" }
+      ]
+    },
+    {
+      "id": "tools",
+      "name": "Tools & Others",
+      "skills": [
+        { "id": "s19", "name": "Git / GitHub", "level": 92, "icon": "git" },
+        { "id": "s20", "name": "Linux / Bash", "level": 82, "icon": "linux" },
+        { "id": "s21", "name": "PostgreSQL / MongoDB", "level": 80, "icon": "db" },
+        { "id": "s22", "name": "LaTeX / Research Writing", "level": 88, "icon": "latex" },
+        { "id": "s23", "name": "Figma / UI Design", "level": 70, "icon": "figma" }
+      ]
+    }
+  ]
+}

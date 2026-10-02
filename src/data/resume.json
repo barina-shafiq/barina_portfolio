@@ -1,0 +1,121 @@
+{
+  "education": [
+    {
+      "id": "edu1",
+      "degree": "Bachelor of Science in Computer Science",
+      "institution": "University of Engineering and Technology",
+      "location": "Lahore, Pakistan",
+      "year": "2020 — 2024",
+      "gpa": "3.82 / 4.0",
+      "grade": "Distinction",
+      "description": "Major in Artificial Intelligence and Machine Learning. Completed thesis on multilingual NLP for low-resource languages.",
+      "achievements": [
+        "Dean's Honor List (All 8 semesters)",
+        "Gold Medal — Best Final Year Project",
+        "Merit Scholarship recipient (2020-2024)"
+      ]
+    },
+    {
+      "id": "edu2",
+      "degree": "Intermediate (Pre-Engineering / Computer Science)",
+      "institution": "Punjab College of Information Technology",
+      "location": "Lahore, Pakistan",
+      "year": "2018 — 2020",
+      "gpa": "",
+      "grade": "A+ (985/1100)",
+      "description": "Topped the college in Computer Science. First place in National Programming Competition.",
+      "achievements": [
+        "Top of Class in Computer Science",
+        "1st Place — National Programming Olympiad"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "id": "exp1",
+      "role": "Research Assistant",
+      "organization": "AI & NLP Lab, UET Lahore",
+      "type": "Research",
+      "year": "Jan 2023 — Aug 2024",
+      "description": "Conducted research on multilingual sentiment analysis under Dr. Ayesha Khan. Published 2 papers and contributed to 3 ongoing projects.",
+      "responsibilities": [
+        "Designed and implemented NLP pipelines for low-resource language processing",
+        "Collected and annotated 15,000 Urdu social media posts",
+        "Presented research findings at 2 international conferences",
+        "Mentored 3 junior researchers in Python and ML fundamentals"
+      ]
+    },
+    {
+      "id": "exp2",
+      "role": "Teaching Assistant — Data Structures & Algorithms",
+      "organization": "UET Lahore, CS Department",
+      "type": "Academic",
+      "year": "Sep 2022 — Dec 2023",
+      "description": "Assisted Prof. Raza in conducting lab sessions, grading assignments, and tutoring 80+ students.",
+      "responsibilities": [
+        "Conducted weekly lab sessions for 80+ undergraduate students",
+        "Developed practice problem sets and automated grading scripts",
+        "Held office hours and provided one-on-one tutoring"
+      ]
+    },
+    {
+      "id": "exp3",
+      "role": "Software Development Intern",
+      "organization": "Systems Limited, Lahore",
+      "type": "Industry",
+      "year": "Jun 2023 — Aug 2023",
+      "description": "Worked in the AI/ML division on predictive analytics for enterprise ERP systems.",
+      "responsibilities": [
+        "Built a time-series forecasting model for inventory demand prediction",
+        "Integrated ML model into production REST API using FastAPI",
+        "Reduced inventory stockout rate by 18% in pilot testing"
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "id": "cert1",
+      "name": "Deep Learning Specialization",
+      "issuer": "Coursera / deeplearning.ai",
+      "year": "2023",
+      "credential": "https://coursera.org/verify/abc123"
+    },
+    {
+      "id": "cert2",
+      "name": "Machine Learning with TensorFlow on Google Cloud",
+      "issuer": "Google Cloud / Coursera",
+      "year": "2023",
+      "credential": "https://coursera.org/verify/def456"
+    },
+    {
+      "id": "cert3",
+      "name": "AWS Certified Cloud Practitioner",
+      "issuer": "Amazon Web Services",
+      "year": "2022",
+      "credential": "https://aws.amazon.com/verification/ghi789"
+    }
+  ],
+  "awards": [
+    {
+      "id": "aw1",
+      "title": "Gold Medal — Best FYP Award",
+      "organization": "UET Lahore",
+      "year": "2024",
+      "description": "Awarded for the AI-powered medical diagnosis system, recognized as best final year project across all CS disciplines."
+    },
+    {
+      "id": "aw2",
+      "title": "1st Place — HackAI National Hackathon",
+      "organization": "NUST Islamabad",
+      "year": "2023",
+      "description": "Won national AI hackathon with multilingual emergency response system serving 3 languages."
+    },
+    {
+      "id": "aw3",
+      "title": "ICPC Asia Regional Participant",
+      "organization": "ICPC Foundation",
+      "year": "2022",
+      "description": "Represented UET Lahore at the prestigious International Collegiate Programming Contest Asia Regional."
+    }
+  ]
+}

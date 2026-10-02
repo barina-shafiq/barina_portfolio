@@ -1,0 +1,270 @@
+.section {
+  background: linear-gradient(180deg, #0D0D1A 0%, #0A0A0F 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.blobL {
+  width: 500px;
+  height: 500px;
+  left: -150px;
+  bottom: 0;
+}
+
+.blobR {
+  width: 500px;
+  height: 500px;
+  right: -150px;
+  top: 0;
+}
+
+.scanLine {
+  top: 0;
+}
+
+.header {
+  margin-bottom: 50px;
+  max-width: 700px;
+}
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.subtext {
+  margin-top: 16px;
+  color: #94A3B8;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Info col */
+.infoCol {}
+
+.infoCard {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.infoTitle {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #FBBF24;
+  letter-spacing: 0.05em;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.infoIcon {
+  width: 40px;
+  height: 40px;
+  background: rgba(251,191,36,0.08);
+  border: 1px solid rgba(251,191,36,0.2);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FBBF24;
+  flex-shrink: 0;
+}
+
+.infoLabel {
+  font-size: 0.72rem;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 2px;
+}
+
+.infoValue {
+  font-size: 0.88rem;
+  color: #F1F5F9;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.infoValue:hover {
+  color: #FBBF24;
+}
+
+/* Social */
+.socialSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.socialLabel {
+  font-size: 0.72rem;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.socialGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.socialCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 8px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  color: #94A3B8;
+  text-decoration: none;
+  font-size: 0.72rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.socialCard:hover {
+  background: rgba(251,191,36,0.08);
+  border-color: rgba(251,191,36,0.3);
+  color: #FBBF24;
+  transform: translateY(-2px);
+}
+
+/* Availability */
+.availSection {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  background: rgba(34,197,94,0.05);
+  border: 1px solid rgba(34,197,94,0.15);
+  border-radius: 10px;
+}
+
+.availDot {
+  width: 10px;
+  height: 10px;
+  background: #22C55E;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(34,197,94,0.8);
+  animation: pulse-glow 2s ease-in-out infinite;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.8); }
+}
+
+.availTitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #22C55E;
+  margin-bottom: 4px;
+}
+
+.availDesc {
+  font-size: 0.78rem;
+  color: #64748B;
+  line-height: 1.5;
+}
+
+/* Form */
+.formCol {}
+
+.formCard {
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formTitle {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #F1F5F9;
+  letter-spacing: 0.05em;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.statusMsg {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.statusSuccess {
+  background: rgba(34,197,94,0.1);
+  color: #22C55E;
+  border: 1px solid rgba(34,197,94,0.2);
+}
+
+.statusError {
+  background: rgba(239,68,68,0.1);
+  color: #EF4444;
+  border: 1px solid rgba(239,68,68,0.2);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  .formCard {
+    padding: 24px;
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "personal": {
+    "name": "Barina Shafique",
+    "title": "Computer Science Graduate",
+    "tagline": "Masters Scholar Applicant",
+    "subtitle": "Bridging theory and innovation through research-driven development",
+    "bio": "I am a passionate Computer Science graduate with a strong foundation in machine learning, full-stack development, and academic research. My work focuses on leveraging cutting-edge AI techniques to solve real-world problems. Currently seeking Masters scholarship opportunities abroad to further explore the intersections of artificial intelligence, human-computer interaction, and computational sciences.",
+    "email": "barina.shafique@email.com",
+    "phone": "+92 300 0000000",
+    "location": "Pakistan",
+    "github": "https://github.com/barinashafique",
+    "linkedin": "https://linkedin.com/in/barinashafique",
+    "twitter": "https://twitter.com/barinashafique",
+    "resumeUrl": "/resume.pdf",
+    "profileImage": "/profile.jpg",
+    "heroTags": ["Machine Learning", "Full Stack", "NLP", "Research", "Open Source"],
+    "typingWords": ["Machine Learning", "NLP Researcher", "Full Stack Dev", "CS Scholar", "AI Enthusiast"],
+    "stats": [
+      { "label": "Projects Completed", "value": "15+", "icon": "code" },
+      { "label": "Research Papers", "value": "3", "icon": "paper" },
+      { "label": "Technologies", "value": "20+", "icon": "tech" },
+      { "label": "GPA", "value": "3.82", "icon": "star" }
+    ]
+  },
+  "about": {
+    "heading": "About Me",
+    "description": "I am a Computer Science graduate passionate about research and innovation. My academic journey has been defined by curiosity, dedication, and a drive to push the boundaries of what technology can achieve.",
+    "highlights": [
+      "Bachelor's in Computer Science with distinction",
+      "Research experience in Machine Learning & NLP",
+      "Full-stack development across 5+ frameworks",
+      "Teaching assistant & mentor to junior students",
+      "Active participant in hackathons and coding competitions"
+    ],
+    "interests": ["Machine Learning", "Natural Language Processing", "Computer Vision", "Human-Computer Interaction", "Distributed Systems"]
+  },
+  "researchInterests": [
+    {
+      "id": "ri1",
+      "title": "Machine Learning & AI",
+      "icon": "🤖",
+      "description": "Deep interest in neural architectures, transfer learning, and developing AI systems that can reason with limited data.",
+      "keywords": ["Deep Learning", "Transfer Learning", "Few-shot Learning", "Explainable AI"]
+    },
+    {
+      "id": "ri2",
+      "title": "Natural Language Processing",
+      "icon": "💬",
+      "description": "Fascinated by the challenge of making computers understand human language — from sentiment analysis to large language models.",
+      "keywords": ["Transformers", "Sentiment Analysis", "Text Classification", "Named Entity Recognition"]
+    },
+    {
+      "id": "ri3",
+      "title": "Computer Vision",
+      "icon": "👁️",
+      "description": "Exploring how machines perceive and interpret visual information, with applications in medical imaging and autonomous systems.",
+      "keywords": ["Object Detection", "Image Segmentation", "Medical Imaging", "GANs"]
+    },
+    {
+      "id": "ri4",
+      "title": "Human-Computer Interaction",
+      "icon": "🖥️",
+      "description": "Studying the design and evaluation of interactive systems that make technology accessible and intuitive for all users.",
+      "keywords": ["UX Research", "Accessibility", "User Studies", "Interface Design"]
+    }
+  ],
+  "contact": {
+    "heading": "Let's Connect",
+    "subheading": "Whether you have an opportunity, a question, or just want to say hi — my inbox is always open.",
+    "formspreeId": ""
+  }
+}

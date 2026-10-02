@@ -1,0 +1,649 @@
+/* ── Hero section ─────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  /* Extra height = pin travel distance (120% above viewport) */
+  height: 220vh;
+  background: #0A0A0F;
+}
+
+/* The pinned inner — keeps viewport height while section scrolls */
+.pinContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.starField {
+  z-index: 0;
+}
+
+/* Background grid — controlled by GSAP scrub */
+.techGrid {
+  opacity: 0;
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+
+/* Ambient blobs */
+.blobLeft {
+  width: 600px;
+  height: 600px;
+  left: -180px;
+  top: 40%;
+  transform: translateY(-50%);
+}
+
+.blobRight {
+  width: 700px;
+  height: 700px;
+  right: -120px;
+  top: 5%;
+}
+
+.blobBottom {
+  width: 400px;
+  height: 400px;
+  left: 30%;
+  bottom: -150px;
+  opacity: 0.06 !important;
+}
+
+/* ── HUD corners ─────────────────────────────────────────────── */
+.cornerTL,
+.cornerTR,
+.cornerBL,
+.cornerBR {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  z-index: 2;
+  opacity: 0;
+}
+.cornerTL { top: 24px; left: 24px; border-top: 2px solid #FBBF24; border-left: 2px solid #FBBF24; }
+.cornerTR { top: 24px; right: 24px; border-top: 2px solid #22D3EE; border-right: 2px solid #22D3EE; }
+.cornerBL { bottom: 24px; left: 24px; border-bottom: 2px solid #22D3EE; border-left: 2px solid #22D3EE; }
+.cornerBR { bottom: 24px; right: 24px; border-bottom: 2px solid #FBBF24; border-right: 2px solid #FBBF24; }
+
+/* ── Scroll progress bar ─────────────────────────────────────── */
+.progressTrack {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255,255,255,0.06);
+  z-index: 20;
+}
+
+.progressBar {
+  height: 100%;
+  background: linear-gradient(90deg, #FBBF24, #22D3EE);
+  transform: scaleX(0);
+  transform-origin: left center;
+  box-shadow: 0 0 8px rgba(251,191,36,0.6);
+}
+
+/* ── HUD panel ───────────────────────────────────────────────── */
+.hudPanel {
+  position: absolute;
+  top: 88px;
+  right: 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 10;
+  opacity: 0;
+}
+
+.hudItem {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.hudLabel {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: #334155;
+  letter-spacing: 0.18em;
+}
+
+.hudValue {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.63rem;
+  letter-spacing: 0.1em;
+}
+
+/* ── Main content layout ─────────────────────────────────────── */
+.content {
+  position: relative;
+  z-index: 5;
+  max-width: 1400px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  padding-top: 50px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 36px;
+  align-items: center;
+}
+
+/* ── Text content ────────────────────────────────────────────── */
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  will-change: transform, opacity;
+}
+
+.topLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.labelDot {
+  width: 6px;
+  height: 6px;
+  background: #FBBF24;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(251,191,36,0.9);
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 8px rgba(251,191,36,0.9); }
+  50% { opacity: 0.6; transform: scale(0.7); box-shadow: 0 0 4px rgba(251,191,36,0.4); }
+}
+
+.greeting {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  color: #94A3B8;
+  margin-bottom: -10px;
+}
+
+/* ── Name lines ──────────────────────────────────────────────── */
+.nameWrapper {
+  line-height: 1;
+  will-change: transform, opacity;
+}
+
+.nameLine1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(2.8rem, 6.5vw, 5.8rem);
+  font-weight: 900;
+  color: #F1F5F9;
+  letter-spacing: -0.02em;
+  overflow: hidden;
+  display: block;
+}
+
+.nameLine2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(2.8rem, 6.5vw, 5.8rem);
+  font-weight: 900;
+  color: #FBBF24;
+  letter-spacing: -0.02em;
+  display: block;
+  text-shadow: 0 0 60px rgba(251,191,36,0.35), 0 0 120px rgba(251,191,36,0.1);
+}
+
+/* ── Typing ──────────────────────────────────────────────────── */
+.typingWrapper {
+  display: flex;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  min-height: 1.6rem;
+}
+
+.typingPrefix {
+  color: #FBBF24;
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+.typedText {
+  color: #22D3EE;
+}
+
+/* ── Tags ────────────────────────────────────────────────────── */
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ── Bio ─────────────────────────────────────────────────────── */
+.bioBrief {
+  font-size: 0.92rem;
+  color: #94A3B8;
+  line-height: 1.75;
+  max-width: 540px;
+}
+
+/* ── CTA ─────────────────────────────────────────────────────── */
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  will-change: transform, opacity;
+}
+
+/* ── Social ──────────────────────────────────────────────────── */
+.socialRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #94A3B8;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.socialLink:hover {
+  border-color: #FBBF24;
+  color: #FBBF24;
+  background: rgba(251,191,36,0.08);
+  transform: translateY(-3px);
+  box-shadow: 0 0 18px rgba(251,191,36,0.25);
+}
+
+.socialDivider {
+  width: 1px;
+  height: 24px;
+  background: rgba(255,255,255,0.1);
+  margin: 0 4px;
+}
+
+.availableText {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: #64748B;
+}
+
+.availableDot {
+  width: 8px;
+  height: 8px;
+  background: #22C55E;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(34,197,94,0.9);
+  animation: pulseDot 2.5s ease-in-out infinite;
+}
+
+/* ── Right side: Portrait Container & Telemetry ───────────────── */
+.portraitContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-shrink: 0;
+  will-change: transform, opacity;
+  opacity: 1;
+}
+
+/* Ambient sci-fi aura behind the portrait */
+.portraitBackdropGlow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: 15%;
+  right: 5%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.22) 0%, rgba(34, 211, 238, 0.14) 40%, transparent 70%);
+  filter: blur(55px);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 50%;
+  animation: auraPulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes auraPulse {
+  0% { transform: scale(0.92); opacity: 0.7; }
+  100% { transform: scale(1.08); opacity: 1; }
+}
+
+/* Cyber rings behind her head & shoulders */
+.cyberRingWrapper {
+  position: absolute;
+  top: 6%;
+  width: 440px;
+  height: 440px;
+  pointer-events: none;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orbitRing {
+  position: absolute;
+  border-radius: 50%;
+  border-style: solid;
+  box-sizing: border-box;
+}
+
+.orbitRing1 {
+  width: 100%;
+  height: 100%;
+  border-width: 1px;
+  border-color: rgba(251,191,36,0.14);
+}
+
+.orbitRing2 {
+  width: 82%;
+  height: 82%;
+  border-width: 1px;
+  border-style: dashed;
+  border-color: rgba(34,211,238,0.22);
+  position: absolute;
+}
+
+.orbitRing3 {
+  width: 66%;
+  height: 66%;
+  border-width: 1px;
+  border-color: rgba(251,191,36,0.1);
+  border-right-color: rgba(251,191,36,0.7);
+  border-right-width: 2px;
+  position: absolute;
+}
+
+.orbitDot {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: #FBBF24;
+  border-radius: 50%;
+  box-shadow: 0 0 14px rgba(251,191,36,1), 0 0 30px rgba(251,191,36,0.4);
+  transform-origin: center;
+}
+
+.orbitDotCyan {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: #22D3EE;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(34,211,238,1), 0 0 24px rgba(34,211,238,0.4);
+}
+
+/* Hero Cutout Portrait - full height reaching bottom of hero */
+.portraitWrapper {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  pointer-events: auto;
+  filter: drop-shadow(0 25px 60px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 45px rgba(251, 191, 36, 0.16));
+}
+
+.portraitImg {
+  height: 88vh;
+  max-height: 860px;
+  width: auto;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: blur(0px);
+  mask-image: linear-gradient(to top, transparent 0%, rgba(0,0,0,0.5) 8%, black 20%, black 100%);
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, rgba(0,0,0,0.5) 8%, black 20%, black 100%);
+  will-change: transform, opacity, filter;
+  user-select: none;
+  -webkit-user-drag: none;
+  opacity: 1;
+}
+
+.portraitImg:hover {
+  transform: scale(1.015);
+}
+
+.portraitScanLine {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.55), transparent);
+  animation: scanHeroPortrait 4s linear infinite;
+  pointer-events: none;
+  z-index: 4;
+}
+
+@keyframes scanHeroPortrait {
+  0% { top: 10%; opacity: 0; }
+  15% { opacity: 0.8; }
+  85% { opacity: 0.8; }
+  100% { top: 90%; opacity: 0; }
+}
+
+/* Float chips around the portrait */
+.floatChip {
+  position: absolute;
+  background: rgba(10, 10, 18, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: 12px;
+  padding: 12px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 10;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(251, 191, 36, 0.1);
+  opacity: 0;
+  will-change: transform;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.floatChip:hover {
+  border-color: rgba(251, 191, 36, 0.6);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(251, 191, 36, 0.25);
+  transform: translateY(-4px) scale(1.03);
+}
+
+.chipHeader {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.chipDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px currentColor;
+}
+
+.chipLabel {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+.chipValue {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #FBBF24;
+  line-height: 1.1;
+  text-shadow: 0 0 16px rgba(251, 191, 36, 0.3);
+}
+
+/* Strategic positions around Barina's silhouette */
+.chipGpa {
+  top: 14%;
+  left: -20px;
+  border-color: rgba(251, 191, 36, 0.35);
+}
+
+.chipPapers {
+  top: 28%;
+  right: -15px;
+  border-color: rgba(34, 211, 238, 0.35);
+}
+
+.chipPapers .chipValue {
+  color: #22D3EE;
+  text-shadow: 0 0 16px rgba(34, 211, 238, 0.3);
+}
+
+.chipProjects {
+  bottom: 20%;
+  left: -35px;
+  border-color: rgba(167, 139, 250, 0.35);
+}
+
+.chipProjects .chipValue {
+  color: #C084FC;
+  text-shadow: 0 0 16px rgba(192, 132, 252, 0.3);
+}
+
+/* ── Scroll indicator ────────────────────────────────────────── */
+.scrollIndicator {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  animation: scrollBounce 2.2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(-8px); }
+}
+
+.scrollMouse {
+  width: 24px;
+  height: 38px;
+  border: 2px solid rgba(251,191,36,0.35);
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.scrollDot {
+  width: 4px;
+  height: 8px;
+  background: #FBBF24;
+  border-radius: 2px;
+  animation: scrollDotAnim 2.2s ease-in-out infinite;
+}
+
+@keyframes scrollDotAnim {
+  0%   { transform: translateY(0);    opacity: 1; }
+  100% { transform: translateY(14px); opacity: 0; }
+}
+
+.scrollIndicator span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  color: rgba(251,191,36,0.4);
+  letter-spacing: 0.25em;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .hero {
+    height: 180vh;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
+    padding-top: 80px;
+    height: auto;
+  }
+
+  .portraitContainer {
+    width: 100%;
+    max-width: 480px;
+    height: 52vh;
+    max-height: 480px;
+    order: -1;
+    margin-bottom: 20px;
+  }
+
+  .portraitImg {
+    height: 52vh;
+    max-height: 480px;
+  }
+
+  .tagRow, .ctaRow, .socialRow {
+    justify-content: center;
+  }
+
+  .bioBrief { text-align: center; max-width: 480px; }
+  .hudPanel { display: none; }
+
+  .chipGpa { top: 8%; left: 0px; }
+  .chipPapers { top: 22%; right: 0px; }
+  .chipProjects { bottom: 12%; left: 0px; }
+}
+
+@media (max-width: 600px) {
+  .hero { height: 160vh; }
+
+  .portraitContainer {
+    max-width: 340px;
+    height: 42vh;
+    max-height: 380px;
+  }
+
+  .portraitImg {
+    height: 42vh;
+    max-height: 380px;
+  }
+
+  .nameLine1, .nameLine2 {
+    font-size: clamp(2.2rem, 11vw, 3.2rem);
+  }
+
+  .floatChip {
+    padding: 8px 12px;
+  }
+
+  .chipValue {
+    font-size: 1.1rem;
+  }
+
+  .chipLabel {
+    font-size: 0.58rem;
+  }
+}

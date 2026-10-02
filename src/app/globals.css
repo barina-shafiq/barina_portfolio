@@ -1,0 +1,607 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root {
+  /* Colors */
+  --color-bg: #0A0A0F;
+  --color-bg-2: #0D0D1A;
+  --color-bg-3: #111122;
+  --color-surface: rgba(255, 255, 255, 0.03);
+  --color-surface-hover: rgba(255, 255, 255, 0.06);
+  --color-border: rgba(255, 255, 255, 0.07);
+  --color-border-hover: rgba(251, 191, 36, 0.3);
+
+  /* Amber palette */
+  --amber-50: #fffbeb;
+  --amber-100: #fef3c7;
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --amber-600: #d97706;
+
+  /* Cyan palette */
+  --cyan-400: #22d3ee;
+  --cyan-500: #06b6d4;
+  --cyan-glow: rgba(34, 211, 238, 0.15);
+
+  /* Text */
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted: #475569;
+
+  /* Typography */
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing */
+  --section-padding: 120px;
+  --container-width: 1200px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 600ms ease;
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows / Glows */
+  --glow-amber: 0 0 20px rgba(251, 191, 36, 0.4), 0 0 60px rgba(251, 191, 36, 0.1);
+  --glow-cyan: 0 0 20px rgba(34, 211, 238, 0.4), 0 0 60px rgba(34, 211, 238, 0.1);
+  --glow-subtle: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--amber-500);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--amber-400);
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.display-xl {
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.display-lg {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 800;
+}
+
+.display-md {
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 700;
+}
+
+.section-heading {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+}
+
+.section-heading span {
+  color: var(--amber-400);
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber-400);
+  opacity: 0.8;
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  position: relative;
+  padding: var(--section-padding) 0;
+  overflow: hidden;
+}
+
+/* ============================================================
+   GLASSMORPHISM CARDS
+   ============================================================ */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(251, 191, 36, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 30px rgba(251, 191, 36, 0.08);
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: var(--amber-400);
+  color: #0A0A0F;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-amber);
+  background: var(--amber-400);
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 31px;
+  background: transparent;
+  color: var(--amber-400);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--amber-400);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.btn-secondary:hover {
+  background: rgba(251, 191, 36, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.2);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.btn-ghost:hover {
+  color: var(--text-primary);
+  border-color: var(--color-border-hover);
+}
+
+/* ============================================================
+   AMBIENT BACKGROUND EFFECTS
+   ============================================================ */
+.ambient-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.ambient-blob-amber {
+  background: radial-gradient(circle, #FBBF24 0%, transparent 70%);
+}
+
+.ambient-blob-cyan {
+  background: radial-gradient(circle, #22D3EE 0%, transparent 70%);
+}
+
+/* ============================================================
+   TECH GRID (background decoration)
+   ============================================================ */
+.tech-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 80%);
+}
+
+/* ============================================================
+   SKILL BAR
+   ============================================================ */
+.skill-bar {
+  position: relative;
+  height: 4px;
+  background: rgba(255,255,255,0.08);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--amber-500), var(--cyan-400));
+  border-radius: var(--radius-full);
+  transform-origin: left;
+  transform: scaleX(0);
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+}
+
+/* ============================================================
+   TAG / BADGE
+   ============================================================ */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  border-radius: var(--radius-full);
+  background: rgba(251, 191, 36, 0.1);
+  color: var(--amber-400);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  white-space: nowrap;
+}
+
+.tag-cyan {
+  background: rgba(34, 211, 238, 0.1);
+  color: var(--cyan-400);
+  border-color: rgba(34, 211, 238, 0.2);
+}
+
+.tag-neutral {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  border-color: var(--color-border);
+}
+
+/* ============================================================
+   HUD NUMBER COUNTER
+   ============================================================ */
+.hud-counter {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--cyan-400);
+  opacity: 0.6;
+  letter-spacing: 0.1em;
+}
+
+/* ============================================================
+   SCAN LINE ANIMATION
+   ============================================================ */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyan-400), transparent);
+  opacity: 0.3;
+  animation: scanline 3s linear infinite;
+  pointer-events: none;
+}
+
+/* ============================================================
+   GLOWING BORDER ANIMATION
+   ============================================================ */
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(251, 191, 36, 0.2); }
+  50% { border-color: rgba(251, 191, 36, 0.6); }
+}
+
+.border-glow-anim {
+  animation: borderGlow 3s ease-in-out infinite;
+}
+
+/* ============================================================
+   PULSING DOT
+   ============================================================ */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--amber-400);
+  animation: pulse-glow 2s ease-in-out infinite;
+  box-shadow: 0 0 10px var(--amber-400);
+}
+
+/* ============================================================
+   TYPING CURSOR
+   ============================================================ */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  background: var(--amber-400);
+  margin-left: 4px;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+}
+
+/* ============================================================
+   STAT CARD
+   ============================================================ */
+.stat-card {
+  padding: 24px;
+  text-align: center;
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--amber-400);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ============================================================
+   TIMELINE
+   ============================================================ */
+.timeline-line {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--amber-500) 20%, var(--amber-500) 80%, transparent);
+}
+
+/* ============================================================
+   SECTION SEPARATOR
+   ============================================================ */
+.section-sep {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--amber-500), var(--cyan-400));
+  border-radius: var(--radius-full);
+  margin-bottom: 12px;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding: 60px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+}
+
+/* ============================================================
+   ANIMATIONS UTILITY
+   ============================================================ */
+.will-animate {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   ADMIN STYLES
+   ============================================================ */
+.admin-input {
+  width: 100%;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.admin-input:focus {
+  border-color: var(--amber-400);
+}
+
+.admin-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   CURSOR SPOTLIGHT
+   ============================================================ */
+.cursor-spotlight {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(251, 191, 36, 0.06) 0%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  mix-blend-mode: screen;
+}
+
+/* ============================================================
+   SECTION SEP — transform-origin for animation
+   ============================================================ */
+.section-sep {
+  transform-origin: left center;
+}
+
+/* ============================================================
+   WILL-CHANGE OPTIMIZATION
+   ============================================================ */
+.glass-card {
+  will-change: transform;
+}
+
+/* ============================================================
+   SMOOTH SCROLL BASE
+   ============================================================ */
+html {
+  /* Prevent FOUC when Lenis takes over */
+  overflow: auto;
+}
+
+/* ============================================================
+   LENIS BASE OVERRIDES
+   ============================================================ */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
